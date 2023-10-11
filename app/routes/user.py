@@ -37,7 +37,6 @@ async def read_user(user_id: int, db: Session = Depends(get_db)):
 
 @router.post("/uploadfile/")
 async def upload_file(file: UploadFile):
-    print(file)
     # El parámetro 'file' es de tipo UploadFile y contiene la información del archivo subido.
 
     # Nombre del archivo en S3
@@ -49,3 +48,13 @@ async def upload_file(file: UploadFile):
     s3.upload_fileobj(file.file, nombre_de_bucket, nombre_en_s3)
 
     return {"filename": file.filename}
+
+@router.get("/findpaths/")
+async def find_paths():
+    # Nombre del bucket de S3
+    bucket_name = 'bucket-cloud-proyecto-s3'
+    # Lista todos los objetos en el bucket
+    response = s3.list_objects_v2(Bucket=bucket_name)
+    # Extrae las rutas de los objetos
+    file_paths = [obj['Key'] for obj in response.get('Contents', [])]
+    return file_paths
