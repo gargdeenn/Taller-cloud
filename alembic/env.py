@@ -20,7 +20,7 @@ db_url = os.environ.get('DB_URL')
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from app.models.user import User
+from app.models.file import File
 from alembic import context
 
 # this is the Alembic Config object, which provides
@@ -35,7 +35,7 @@ if config.config_file_name is not None:
 
 # Crea un objeto `metadata` que contenga los modelos que deseas incluir en la migración.
     target_metadata = [
-        User.metadata,
+        File.metadata,
         # Agrega otros modelos aquí
 ]
 

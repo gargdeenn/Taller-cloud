@@ -1,4 +1,4 @@
-from app.routes.user import router as user_router
+from app.routes.file import router as file_router
 from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -35,4 +35,4 @@ async def root():
     return {"message": "La aplicacion esta funcionando!"}
 
 
-app.include_router(user_router, prefix="/users", tags=["users"])
+app.include_router(file_router, prefix="/files", tags=["files"])

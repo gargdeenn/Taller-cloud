@@ -26,4 +26,3 @@ async def get_db():
     finally:
         if db:
             db.close()
-
