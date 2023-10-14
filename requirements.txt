@@ -9,3 +9,4 @@ pymysql
 alembic
 boto3
 python-multipart
+cryptography
