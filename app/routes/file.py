@@ -42,7 +42,7 @@ async def upload_file(file: UploadFile,  db: Session = Depends(get_db)):
     # Nombre del archivo en S3
     nombre_en_s3 = 'carpeta/' + file.filename  # Cambia esto según tu estructura de carpetas en S3
     # Nombre del bucket de S3
-    nombre_de_bucket = 'bucket-cloud-proyecto-s3'
+    nombre_de_bucket = 'bucket-corte2-s3'
 
     # Ejemplo de cómo cargar el archivo en S3
     s3.upload_fileobj(file.file, nombre_de_bucket, nombre_en_s3)
